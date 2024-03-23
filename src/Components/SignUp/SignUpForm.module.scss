@@ -1,0 +1,136 @@
+@import "../../Styles/mixins.scss";
+
+.form {
+  max-width: 371px;
+  width: 371px;
+  margin: 0 120px;
+}
+
+@include medium {
+  .form {
+    margin: 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .form {
+    max-width: none;
+  }
+}
+
+.form>h2 {
+  font: 500 2.25rem/30px "Inter";
+  letter-spacing: .04rem;
+  width: max-content;
+}
+
+@include small {
+  .form>h2 {
+    font-size: 1.8rem;
+  }
+}
+
+.form>p {
+  margin: 20px 0 30px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputs>input {
+  border: none;
+  outline: none;
+  border-bottom: solid 1px var(--dark-gray);
+  padding-bottom: 8px;
+  color: var(--black);
+  font: 400 1rem/24px "Poppins";
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &[class=invalid] {
+    border-bottom-color: var(--dark-tomato);
+
+    &::placeholder {
+      color: var(--dark-tomato);
+    }
+  }
+
+  &:not(:placeholder-shown) {
+    border-bottom-color: var(--dark-gray);
+  }
+}
+
+.inputs>input::placeholder {
+  color: var(--regular-light-gray);
+}
+
+.createAccBtn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px;
+  background-color: var(--dark-tomato);
+  color: var(--white);
+  border: none;
+  font: 500 1rem/24px "Poppins";
+  margin: 40px 0 20px;
+}
+
+.signUpBtn {
+  width: 100%;
+  padding: 16px;
+  border-radius: 4px;
+  @include center-x-y;
+  background-color: transparent;
+  border: 1px solid #00000066;
+  font: 400 1rem/24px "Poppins";
+}
+
+.signUpBtn>img {
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.buttons>p {
+  font: 400 1rem/24px "Poppins";
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin: 40px auto 0;
+}
+
+.buttons>p>span {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.buttons>p>a {
+  color: var(--primary);
+  position: relative;
+  top: -2px;
+  transition: color .2s;
+
+  &:hover {
+    color: var(--black);
+  }
+}
+
+.buttons>p>a::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 1px;
+  background-color: var(--primary);
+  transition: background-color .2s;
+}
+
+.buttons>p>a:hover::before {
+  background-color: var(--black);
+}
